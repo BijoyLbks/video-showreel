@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA CINEMA | Video Production & Showreel</title>
+  <meta name="description" content="Cinematic video production portfolio & showreel. Commercials, music videos, narrative films, and documentaries.">
+  
+  <!-- Google Fonts: Outfit (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <div>
+          <span class="brand-text">AURA CINEMA</span>
+          <span class="brand-sub">STUDIO REEL</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#showreel" class="nav-link">Showreel</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <a href="admin.html" class="btn-admin-nav">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Admin Panel
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section with Spotlight Showreel -->
+  <section id="showreel" class="hero-section">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      2026 Production Slate Live
+    </div>
+    <h1 class="hero-title">Visuals That Resonate.</h1>
+    <p class="hero-subtitle">
+      Directing & cinematography for global brands, record labels, and independent cinema. Shot on ARRI Alexa Mini LF & RED V-Raptor.
+    </p>
+
+    <!-- Hero Featured Showreel Player -->
+    <div id="heroReelContainer" class="showreel-hero-card">
+      <img id="heroPoster" src="" alt="Showreel Cover" class="showreel-poster">
+      <div class="showreel-overlay">
+        <div class="showreel-top">
+          <span class="showreel-badge">Featured Showreel</span>
+          <span id="heroDuration" class="showreel-badge">02:15</span>
+        </div>
+        <div class="play-button-large">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <div class="showreel-bottom">
+          <h2 id="heroTitle" class="showreel-title">Official Cinematic Showreel</h2>
+          <div class="showreel-meta">
+            <span id="heroClient">Studio Showcase</span>
+            <span>•</span>
+            <span id="heroRole">Director & DP</span>
+            <span>•</span>
+            <span>4K Anamorphic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Showcase / Filter & Grid -->
+  <section id="work" class="portfolio-section">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Selected Works</h2>
+        <p class="section-subtitle">Commercials, Music Videos, Documentaries & Playlists</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-grid" id="videoGrid">
+      <!-- Video cards dynamically rendered -->
+    </div>
+  </section>
+
+  <!-- About / Equipment / Studio Specs -->
+  <section id="about" class="about-section">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">The Studio</h2>
+        <p class="about-bio">
+          AURA CINEMA is a boutique video production unit specializing in cinematic visual storytelling. We bridge the gap between high-concept commercial narratives and raw documentary authenticity. From concept development, storyboarding, and drone cinematography to color grading in DaVinci Resolve.
+        </p>
+
+        <div class="client-list-title">Selected Clients & Collaborators</div>
+        <div class="client-badges">
+          <span class="client-pill">Porsche</span>
+          <span class="client-pill">Nike</span>
+          <span class="client-pill">Red Bull Media</span>
+          <span class="client-pill">National Geographic</span>
+          <span class="client-pill">Sony Music</span>
+          <span class="client-pill">Atlantic Records</span>
+          <span class="client-pill">Vogue</span>
+        </div>
+      </div>
+
+      <div class="contact-card" id="contact">
+        <h3 style="font-family: var(--font-display); font-size: 1.3rem;">Get in Touch</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+          Currently booking commercial and narrative productions for Q3/Q4. Worldwide availability.
+        </p>
+        
+        <div class="contact-item">
+          <span class="contact-label">Inquiries & Bookings</span>
+          <a href="mailto:contact@auraproductions.film" class="contact-value">contact@auraproductions.film</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">Direct Line / WhatsApp</span>
+          <a href="tel:+15552345678" class="contact-value">+1 (555) 234-5678</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">Studio Base</span>
+          <span class="contact-value">Los Angeles, CA / Available Worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 AURA CINEMA. All rights reserved. Powered by Cloudflare Pages & D1.</p>
+    </div>
+  </section>
+
+  <!-- Cinema Lightbox Modal -->
+  <div id="cinemaModal" class="cinema-modal">
+    <div class="modal-container">
+      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-player-wrapper">
+        <iframe id="modalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <div class="modal-info-panel">
+        <div class="modal-title-row">
+          <div>
+            <h3 id="modalTitle" class="modal-title">Project Title</h3>
+            <div id="modalClient" class="modal-client">Client / Brand</div>
+          </div>
+          <div class="modal-tags">
+            <span id="modalCategory" class="client-pill">Commercials</span>
+            <span id="modalYear" class="client-pill">2025</span>
+          </div>
+        </div>
+        <p id="modalDesc" class="modal-desc">Project synopsis and cinematography description.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | AURA Showreel Manager</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+</head>
+<body style="background: #08080c;">
+
+  <!-- PIN Protection Modal -->
+  <div id="authModal" class="form-modal open" style="z-index: 999;">
+    <div class="form-container" style="max-width: 420px; text-align: center;">
+      <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">Admin Access</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">
+        Enter your studio PIN to manage showreels & video portfolio.
+      </p>
+
+      <form id="authForm">
+        <div class="form-group">
+          <input type="password" id="pinInput" class="form-input" placeholder="Enter PIN (Default: admin123)" required autofocus style="text-align: center; font-size: 1.2rem; letter-spacing: 0.2em;">
+        </div>
+        <div id="authError" style="color: #f87171; font-size: 0.85rem; margin-bottom: 1rem; display: none;">
+          Incorrect PIN. Please try again.
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+          Unlock Dashboard
+        </button>
+      </form>
+      <div style="margin-top: 1.5rem;">
+        <a href="index.html" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none;">&larr; Return to Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Main Dashboard Content -->
+  <div id="dashboardContent" style="display: none;">
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="admin-title-area">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
+            &larr; View Live Site
+          </a>
+          <span style="color: var(--border-subtle);">|</span>
+          <h1>Showreel Portfolio Manager</h1>
+        </div>
+        <div id="backendBadge" class="admin-status-badge status-local">
+          <span>●</span> Detecting Database Mode...
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button id="btnSettings" class="btn-secondary" title="Change PIN">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </button>
+        <button id="btnLogout" class="btn-secondary">Logout</button>
+      </div>
+    </header>
+
+    <!-- Actions Bar -->
+    <div class="admin-actions-bar">
+      <div>
+        <h2 style="font-family: var(--font-display); font-size: 1.3rem;">Projects Slate</h2>
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">Manage showreel videos, reorder items, and configure embeds.</p>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button id="btnExport" class="btn-secondary" title="Export JSON backup">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Export Backup
+        </button>
+        
+        <label class="btn-secondary" style="cursor: pointer;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          Import JSON
+          <input type="file" id="importFileInput" accept=".json" style="display: none;">
+        </label>
+
+        <button id="btnAddNew" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Add New Video
+        </button>
+      </div>
+    </div>
+
+    <!-- Project List -->
+    <div class="admin-table-container">
+      <div id="adminProjectList" class="admin-project-list">
+        <!-- Projects rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Project Modal -->
+  <div id="projectModal" class="form-modal">
+    <div class="form-container">
+      <button id="closeProjectModalBtn" class="modal-close-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <h2 id="modalFormTitle" style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.25rem;">Add New Video</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">
+        Paste a YouTube, Vimeo, YouTube Playlist, or Google Drive URL.
+      </p>
+
+      <form id="projectForm">
+        <input type="hidden" id="fieldProjectId">
+
+        <!-- Video URL Input with Auto Detection -->
+        <div class="form-group">
+          <label class="form-label">Video or Playlist URL *</label>
+          <input type="url" id="fieldSourceUrl" class="form-input" placeholder="e.g. https://www.youtube.com/watch?v=... or https://vimeo.com/... or Google Drive link" required>
+          <div id="parserFeedback" style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--accent-gold); display: flex; align-items: center; gap: 0.5rem;"></div>
+        </div>
+
+        <!-- Live Preview Box -->
+        <div id="livePreviewContainer" class="form-preview-card" style="display: none; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); font-weight: 700;">Live Embed Preview</span>
+            <span id="previewSourceBadge" class="card-source-badge badge-youtube" style="position: static;">YouTube</span>
+          </div>
+          <div style="aspect-ratio: 16 / 9; width: 100%; background: #000; border-radius: var(--radius-sm); overflow: hidden;">
+            <iframe id="previewIframe" src="" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Project Title *</label>
+            <input type="text" id="fieldTitle" class="form-input" placeholder="e.g. Porsche 911 GT3 Spec" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client / Brand</label>
+            <input type="text" id="fieldClient" class="form-input" placeholder="e.g. Porsche Motorsport">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select id="fieldCategory" class="form-select">
+              <option value="Commercials">Commercials</option>
+              <option value="Music Videos">Music Videos</option>
+              <option value="Showreel">Showreel</option>
+              <option value="Narrative">Narrative</option>
+              <option value="Documentaries">Documentaries</option>
+              <option value="Playlists">Playlists</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Production Year</label>
+            <input type="text" id="fieldYear" class="form-input" placeholder="2026">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Duration</label>
+            <input type="text" id="fieldDuration" class="form-input" placeholder="e.g. 01:45">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Role / Credits</label>
+            <input type="text" id="fieldRole" class="form-input" placeholder="e.g. Director & Cinematographer">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Aspect Ratio</label>
+            <select id="fieldAspectRatio" class="form-select">
+              <option value="16:9">16:9 (Standard Widescreen)</option>
+              <option value="9:16">9:16 (Vertical Reels / TikTok)</option>
+              <option value="2.39:1">2.39:1 (Cinematic Anamorphic)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Custom Poster / Thumbnail URL (Optional)</label>
+            <input type="url" id="fieldThumbnailUrl" class="form-input" placeholder="Auto-detected for YouTube, or paste image URL">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Synopsis / Cinematography Notes</label>
+          <textarea id="fieldDescription" class="form-textarea" rows="3" placeholder="Brief technical or artistic description (camera, lighting, location)..."></textarea>
+        </div>
+
+        <div class="form-group" style="padding: 1rem; background: rgba(255, 255, 255, 0.03); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <label class="form-checkbox-label">
+            <input type="checkbox" id="fieldFeatured">
+            <span><strong>Set as Main Hero Showreel</strong> (Pins to the spotlight banner at the top of the homepage)</span>
+          </label>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+          <button type="button" id="cancelProjectBtn" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Modal (Change PIN) -->
+  <div id="settingsModal" class="form-modal">
+    <div class="form-container" style="max-width: 440px;">
+      <button id="closeSettingsModalBtn" class="modal-close-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <h2 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.5rem;">Admin Settings</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">
+        Change local access PIN or reset demo data.
+      </p>
+
+      <form id="settingsForm">
+        <div class="form-group">
+          <label class="form-label">New Admin PIN</label>
+          <input type="password" id="newPinInput" class="form-input" placeholder="Enter new PIN" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
+          Update PIN
+        </button>
+      </form>
+
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.5rem; margin-top: 1.5rem;">
+        <button id="btnResetDefaults" class="btn-danger" style="width: 100%;">
+          Reset All Projects to Demo Seed Data
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
