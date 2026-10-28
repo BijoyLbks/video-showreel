@@ -1,13 +1,5 @@
 name = "video-portfolio-showreel"
-pages_build_output_dir = "."
+compatibility_date = "2026-10-23"
 
-# Cloudflare D1 Database Binding
-# Create DB via: npx wrangler d1 create video-portfolio-db
-# Then replace database_id with your generated UUID
-[[d1_databases]]
-binding = "DB"
-database_name = "video-portfolio-db"
-database_id = "YOUR_D1_DATABASE_ID"
-
-[vars]
-ADMIN_PIN = "admin123"
+[assets]
+directory = "."
