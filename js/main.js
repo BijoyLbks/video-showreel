@@ -69,6 +69,12 @@ function setActiveCategory(cat) {
 async function loadProjects() {
   allProjects = await StorageAdapter.getProjects();
   
+  // Update total projects count in Bento dashboard
+  const countEl = document.getElementById('totalProjectsCount');
+  if (countEl) {
+    countEl.textContent = allProjects.length;
+  }
+
   // Find featured hero showreel (or fallback to first item)
   heroProject = allProjects.find(p => p.featured) || allProjects[0];
   updateHeroSection(heroProject);

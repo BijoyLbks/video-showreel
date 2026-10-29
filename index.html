@@ -3,189 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIJOY LBKS | Video Production & Showreel</title>
+  <title>BIJOY LBKS | Modular Bento Showreel & Portfolio</title>
   <meta name="description" content="Cinematic video production portfolio & showreel. Commercials, music videos, narrative films, and documentaries.">
   
   <link rel="stylesheet" href="./css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 </head>
-<body class="industrial-theme">
+<body class="bento-theme">
 
-  <!-- Top Technical Header -->
-  <header class="tech-header">
-    <div class="tech-header-container">
-      <div class="header-left">
-        <a href="#" class="tech-brand">
-          <span class="brand-main">Bijoy-Type® Studio</span>
-        </a>
+  <!-- Top Telemetry Status Bar (Matching Dashboard Reference) -->
+  <header class="bento-top-bar">
+    <div class="top-bar-left">
+      <!-- 9-Dot Matrix Grid Icon -->
+      <div class="matrix-grid-icon" title="Menu">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
       </div>
 
-      <div class="header-center">
-        <span class="tech-meta-tag">AT-M / 0026 &rarr; &rarr;</span>
-      </div>
-
-      <div class="header-right">
-        <div class="live-rec-badge">
-          <span class="rec-dot"></span>
-          <span>REC [SP]</span>
-          <span id="vhsClock" class="tech-clock">00:00:26:12</span>
+      <!-- Live Telemetry Tickers -->
+      <div class="telemetry-ticker-group">
+        <div class="ticker-item">
+          <span class="ticker-label">STATUS</span>
+          <span class="ticker-val"><span class="rec-dot-small"></span> LIVE</span>
         </div>
-        <span class="date-stamp" id="headerDate">01/02/2026</span>
-        <a href="admin.html" class="admin-pill-btn">[ADMIN]</a>
+        <div class="ticker-item">
+          <span class="ticker-label">TIMECODE</span>
+          <span id="vhsClock" class="ticker-val text-yellow">00:00:26:12</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-label">FORMAT</span>
+          <span class="ticker-val">4K DCI / 24P</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-label">SENSOR</span>
+          <span class="ticker-val">ARRI MINI LF</span>
+        </div>
+        <div class="ticker-item hide-mobile">
+          <span class="ticker-label">COLOR</span>
+          <span class="ticker-val">ACEScc 1.3</span>
+        </div>
+        <div class="ticker-item hide-mobile">
+          <span class="ticker-label">DATE</span>
+          <span id="headerDate" class="ticker-val">01/02/2026</span>
+        </div>
       </div>
+    </div>
+
+    <div class="top-bar-right">
+      <div class="user-profile-pill">
+        <div class="user-avatar-bubble">
+          <span class="bubble-inner"></span>
+        </div>
+        <div class="user-meta">
+          <span class="user-name">BIJOY LBKS</span>
+          <span class="user-id">#DIR_DP</span>
+        </div>
+      </div>
+      <a href="admin.html" class="bento-admin-link">[ADMIN]</a>
     </div>
   </header>
 
-  <main class="page-container">
-    <!-- Hero Header Block (Matching Reference Image) -->
-    <section class="reference-hero-section">
-      <div class="hero-top-row">
-        <div class="hero-title-wrapper">
-          <h1 class="hero-pixel-title">Bijoy/Showreel™</h1>
-          <p class="hero-industrial-desc">
-            Bijoy/Showreel™ is a modern video production portfolio with a bold pixel structure and a strong industrial-tech character. Designed for clarity, precision, and cinematic storytelling, this visual slate showcases directing and cinematography across commercial films, music videos, and independent cinema.
-          </p>
-        </div>
+  <!-- Main Bento Dashboard Container -->
+  <main class="bento-dashboard-wrapper">
 
-        <!-- Rotating Acid Yellow Sticker Badge (Matches Reference) -->
-        <div class="acid-sticker-wrapper">
-          <div class="acid-sticker-badge">
-            <svg viewBox="0 0 100 100" class="rotating-badge-svg">
-              <path id="stickerCircle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-              <text font-size="8.5" fill="#000" font-weight="bold" letter-spacing="1.2">
-                <textPath href="#stickerCircle">BIJOY LBKS • CINEMA DIVISION • SHOWREEL 2026 •</textPath>
-              </text>
-            </svg>
-            <div class="sticker-asterisk">✱</div>
-          </div>
+    <!-- Top Bento Section: Spotlight & Key Metrics -->
+    <section class="bento-grid-hero">
+      
+      <!-- Card A: Today's Focus / Showreel Duration (Grey Card) -->
+      <div class="bento-card card-grey card-duration">
+        <div class="card-top-row">
+          <span class="card-tech-title">SHOWREEL LENGTH</span>
+          <span class="card-icon-colon">:</span>
+        </div>
+        <div class="card-giant-stat" id="heroDuration">02:15</div>
+        <div class="card-sub-stat">/ 4K ANAMORPHIC DCI</div>
+      </div>
+
+      <!-- Card B: Completed Projects / Slate Count (Dark Card) -->
+      <div class="bento-card card-dark card-projects-count">
+        <div class="card-top-row">
+          <span class="card-tech-title">SELECTED WORKS</span>
+          <span class="card-icon-colon">:</span>
+        </div>
+        <div class="card-giant-stat text-white">
+          <span id="totalProjectsCount">24</span>
+          <span class="stat-denominator">/ 30</span>
+        </div>
+        <div class="card-footer-metric">
+          <span>SLATE</span>
+          <span>COMMERCIAL // MUSIC // FILM</span>
         </div>
       </div>
 
-      <!-- Technical Metadata Columns (Reference Footer Style) -->
-      <div class="tech-spec-bar">
-        <div class="spec-col">Bijoy / Showreel [Pixel]</div>
-        <div class="spec-col text-center">ARRI LF / RED Raptor / 24 FPS / 4K</div>
-        <div class="spec-col text-right">Production Archive / 2024–2026</div>
-      </div>
+      <!-- Card C: Main Spotlight Showreel Player (Spans 2 Columns) -->
+      <div id="heroReelContainer" class="bento-card card-dark card-hero-player">
+        <!-- Corner Registration Crosshairs -->
+        <span class="crosshair ch-tl">+</span>
+        <span class="crosshair ch-tr">+</span>
+        <span class="crosshair ch-bl">+</span>
+        <span class="crosshair ch-br">+</span>
 
-      <!-- Main Hero Spotlight Showreel Player with Corner Crosshairs -->
-      <div id="heroReelContainer" class="hero-viewfinder-card">
-        <div class="corner-crosshair top-left">+</div>
-        <div class="corner-crosshair top-right">+</div>
-        <div class="corner-crosshair bottom-left">+</div>
-        <div class="corner-crosshair bottom-right">+</div>
+        <img id="heroPoster" src="" alt="Showreel Cover" class="bento-hero-img">
 
-        <img id="heroPoster" src="" alt="Showreel Cover" class="viewfinder-poster">
-        
-        <div class="viewfinder-overlay">
-          <div class="overlay-top-telemetry">
-            <span class="telemetry-pill">PLAY &gt; 4K DCI</span>
-            <span id="heroDuration" class="telemetry-pill">02:15</span>
+        <div class="bento-player-overlay">
+          <div class="overlay-row-top">
+            <span class="bento-badge-tag">[PRIMARY_SHOWREEL_2026]</span>
+            <span class="bento-badge-tag text-yellow">PLAY &gt; 4K</span>
           </div>
 
-          <div class="center-play-trigger">
-            <div class="pixel-play-btn">
+          <div class="center-play-button-wrap">
+            <div class="bento-play-btn">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </div>
           </div>
 
-          <div class="overlay-bottom-telemetry">
+          <div class="overlay-row-bottom">
             <div>
-              <div class="telemetry-label">[PRIMARY_SHOWREEL]</div>
-              <h2 id="heroTitle" class="viewfinder-title">Official Cinematic Showreel</h2>
-              <div class="viewfinder-meta">
-                <span id="heroClient">Studio Showcase</span>
-                <span>//</span>
-                <span id="heroRole">Director &amp; DP</span>
-                <span>//</span>
-                <span>ANAMORPHIC MASTER</span>
+              <h2 id="heroTitle" class="bento-hero-title">Official Cinematic Showreel</h2>
+              <div class="bento-hero-meta">
+                <span id="heroClient">Studio Showcase</span> &bull; 
+                <span id="heroRole">Director &amp; DP</span> &bull; 
+                <span>ARRI Alexa Mini LF / Anamorphic</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Work Showcase / Filter & Grid -->
-    <section id="work" class="portfolio-section">
-      <div class="section-technical-header">
-        <div>
-          <div class="sub-label">[ARCHIVE // SELECTED_WORKS]</div>
-          <h2 class="tech-section-title">Production Slate</h2>
+      <!-- Card D: Directing Scope (Dark Card) -->
+      <div class="bento-card card-dark card-scope">
+        <div class="card-top-row">
+          <span class="card-tech-title">COMMERCIAL CLIENTS</span>
+          <a href="#about" class="circle-arrow-link">&rarr;</a>
+        </div>
+        <div class="card-giant-stat text-white">
+          <span>16</span>
+          <span class="stat-denominator">/ GLOBAL</span>
+        </div>
+        <div class="card-micro-label">SPECIALTY:</div>
+        <p class="card-micro-desc">
+          Automotive high-speed tracking, narrative storytelling, and stylized music videos.
+        </p>
+      </div>
+
+      <!-- Card E: Modular Analog Mono Signature Card (With Yellow Stepped Pixel Pattern) -->
+      <div class="bento-card card-dark card-modular-specimen">
+        <!-- Signature Stepped Yellow Pixel Block Pattern from Reference Image -->
+        <div class="pixel-stepped-mosaic">
+          <div class="mosaic-row">
+            <span class="px-block px-yellow"></span>
+            <span class="px-block px-yellow"></span>
+          </div>
+          <div class="mosaic-row">
+            <span class="px-block px-transparent"></span>
+            <span class="px-block px-yellow"></span>
+            <span class="px-block px-grey"></span>
+          </div>
+          <div class="mosaic-row">
+            <span class="px-block px-transparent"></span>
+            <span class="px-block px-transparent"></span>
+            <span class="px-block px-grey"></span>
+          </div>
         </div>
 
-        <!-- Category Filter Tabs -->
-        <div class="tech-filter-tabs" id="filterTabs">
-          <!-- Rendered dynamically -->
+        <div class="modular-card-content">
+          <h3 class="modular-title">MODULAR<br>CINEMA<br>MONO™</h3>
+          <p class="modular-description">
+            Directing &amp; cinematography unit designed with an industrial-tech aesthetic and precision narrative choreography.
+          </p>
+          <div class="modular-pagination">
+            <span>●</span><span>○</span><span>○</span><span>○</span>
+          </div>
         </div>
       </div>
 
-      <!-- Video Grid -->
+      <!-- Card F: Camera Rig Equalizer / Bar Chart (Dark Card) -->
+      <div class="bento-card card-dark card-chart">
+        <div class="card-top-row">
+          <span class="card-tech-title">FRAME RATES (FPS)</span>
+          <div class="chart-time-pills">
+            <span>24</span><span>60</span><span class="pill-active">120</span>
+          </div>
+        </div>
+        <div class="bento-equalizer-wrap">
+          <div class="equalizer-stat-col">
+            <div class="card-giant-stat text-white">120</div>
+            <div class="card-sub-stat text-yellow">HIGH SPEED / RAW</div>
+          </div>
+          <div class="bento-bar-chart">
+            <div class="bar-col"><span class="bar-fill" style="height: 35%;"></span></div>
+            <div class="bar-col"><span class="bar-fill" style="height: 55%;"></span></div>
+            <div class="bar-col"><span class="bar-fill bar-highlight" style="height: 90%;"></span></div>
+            <div class="bar-col"><span class="bar-fill" style="height: 65%;"></span></div>
+            <div class="bar-col"><span class="bar-fill" style="height: 40%;"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card G: Circular Gauge / Color Science (Dark Card) -->
+      <div class="bento-card card-dark card-gauge">
+        <div class="card-top-row">
+          <span class="card-tech-title">COLOR SCIENCE</span>
+        </div>
+        <div class="gauge-center-content">
+          <div class="circular-gauge-box">
+            <svg viewBox="0 0 100 100" class="gauge-svg">
+              <circle cx="50" cy="50" r="42" class="gauge-track"></circle>
+              <circle cx="50" cy="50" r="42" class="gauge-value"></circle>
+            </svg>
+            <div class="gauge-inner-text">
+              <span class="gauge-num">100%</span>
+              <span class="gauge-sub">DCI-P3</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer-metric">
+          <span>PIPELINE:</span>
+          <span>ACES / DAVINCI RESOLVE</span>
+        </div>
+      </div>
+
+      <!-- Card H: Custom Dashboard / Studio Banner (Grey Card) -->
+      <div class="bento-card card-grey card-studio-banner">
+        <div class="card-top-row">
+          <div></div>
+          <a href="#about" class="circle-arrow-link">&rarr;</a>
+        </div>
+        <h3 class="banner-huge-text">BIJOY LBKS<br>STUDIO</h3>
+        <div class="banner-bottom-row">
+          <span>LOS ANGELES // WORLDWIDE</span>
+          <span>2026 PRODUCTION REEL</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Works Portfolio Bento Grid -->
+    <section id="work" class="bento-works-section">
+      <div class="bento-section-bar">
+        <div>
+          <span class="card-tech-title text-yellow">[ARCHIVE // SELECTED_WORKS]</span>
+          <h2 class="bento-heading">Production Slate</h2>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="bento-filter-group" id="filterTabs">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Videos Bento Grid -->
       <div class="video-grid" id="videoGrid">
         <!-- Video cards dynamically rendered -->
       </div>
     </section>
 
-    <!-- Studio / Contact Section -->
-    <section id="about" class="about-section">
-      <div class="about-technical-grid">
-        <div class="studio-profile-box">
-          <div class="sub-label">[ABOUT // THE_STUDIO]</div>
-          <h2 class="tech-section-title" style="margin-bottom: 1.25rem;">Directing &amp; Cinematography</h2>
-          <p class="about-tech-bio">
-            A boutique video production unit combining high-concept commercial precision with raw documentary grit. Specialized in camera movement choreography, high-speed tracking vehicles, naturalistic lighting, and complete in-house color grading.
+    <!-- Studio Details / Booking Bento Row -->
+    <section id="about" class="bento-about-section">
+      <div class="bento-about-grid">
+        <!-- Studio Info Card -->
+        <div class="bento-card card-dark about-bio-card">
+          <div class="card-top-row">
+            <span class="card-tech-title text-yellow">[ABOUT // THE_DIRECTOR]</span>
+            <span class="card-icon-colon">:</span>
+          </div>
+          <h3 class="about-title">Visual Storytelling with Industrial Precision</h3>
+          <p class="about-desc">
+            Bijoy Labuktongbam is a director and cinematographer specializing in automotive commercials, high-energy music videos, and cinematic brand narratives. Working with full-frame cinema cameras and anamorphic lenses, delivering bold imagery tailored for modern screens.
           </p>
 
-          <div class="sub-label" style="margin-top: 2rem; margin-bottom: 0.75rem;">[CLIENT_ROSTER // COLLABORATORS]</div>
-          <div class="client-tech-list">
-            <span class="client-tag">Porsche Motorsport</span>
-            <span class="client-tag">Nike</span>
-            <span class="client-tag">Red Bull Media</span>
-            <span class="client-tag">National Geographic</span>
-            <span class="client-tag">Sony Music</span>
-            <span class="client-tag">Atlantic Records</span>
+          <div class="client-chips-row">
+            <span class="chip-item">Porsche Motorsport</span>
+            <span class="chip-item">Nike</span>
+            <span class="chip-item">Red Bull Media</span>
+            <span class="chip-item">National Geographic</span>
+            <span class="chip-item">Sony Music</span>
           </div>
         </div>
 
-        <div class="contact-technical-card" id="contact">
-          <div class="sub-label">[INQUIRIES // WORLDWIDE]</div>
-          <h3 class="contact-box-title">Production Bookings</h3>
-          <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">
-            Available for commercial directing, DP assignments, and documentary productions worldwide.
-          </p>
-          
-          <div class="contact-row">
-            <span class="contact-key">EMAIL:</span>
-            <a href="mailto:contact@auraproductions.film" class="contact-val">contact@auraproductions.film</a>
+        <!-- Contact Booking Card (Grey Card) -->
+        <div class="bento-card card-grey about-contact-card" id="contact">
+          <div class="card-top-row">
+            <span class="card-tech-title">[BOOKINGS_INTL]</span>
+            <span class="circle-arrow-static">&rarr;</span>
           </div>
+          <h3 class="contact-card-title">Production Inquiries</h3>
+          <p class="contact-card-subtitle">Accepting direct commercial and narrative inquiries worldwide.</p>
 
-          <div class="contact-row">
-            <span class="contact-key">DIRECT / WHATSAPP:</span>
-            <a href="tel:+15552345678" class="contact-val">+1 (555) 234-5678</a>
-          </div>
-
-          <div class="contact-row">
-            <span class="contact-key">BASE:</span>
-            <span class="contact-val">Los Angeles / London / Available Worldwide</span>
+          <div class="contact-detail-list">
+            <div class="contact-detail-row">
+              <span class="contact-key">EMAIL:</span>
+              <a href="mailto:contact@auraproductions.film" class="contact-val">contact@auraproductions.film</a>
+            </div>
+            <div class="contact-detail-row">
+              <span class="contact-key">DIRECT / WHATSAPP:</span>
+              <a href="tel:+15552345678" class="contact-val">+1 (555) 234-5678</a>
+            </div>
+            <div class="contact-detail-row">
+              <span class="contact-key">STUDIO BASE:</span>
+              <span class="contact-val">Los Angeles / London / Available Worldwide</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <footer class="tech-footer">
-        <div class="footer-left">Bijoy-Type® Studio / All Rights Reserved &copy; 2026</div>
-        <div class="footer-right">Hosted on Cloudflare Pages &bull; D1 Edge Network</div>
+      <footer class="bento-footer">
+        <div>BIJOY LBKS &copy; 2026 &bull; MODULAR BENTO PORTFOLIO</div>
+        <div>HOSTED ON CLOUDFLARE PAGES &bull; D1 DATABASE</div>
       </footer>
     </section>
+
   </main>
 
   <!-- Cinema Lightbox Modal -->
   <div id="cinemaModal" class="cinema-modal">
     <div class="modal-container">
-      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">
-        &times;
-      </button>
+      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">&times;</button>
 
       <div class="modal-player-wrapper">
         <iframe id="modalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -198,8 +334,8 @@
             <div id="modalClient" class="modal-client">Client / Brand</div>
           </div>
           <div class="modal-tags">
-            <span id="modalCategory" class="client-tag">Commercials</span>
-            <span id="modalYear" class="client-tag">2025</span>
+            <span id="modalCategory" class="chip-item">Commercials</span>
+            <span id="modalYear" class="chip-item">2025</span>
           </div>
         </div>
         <p id="modalDesc" class="modal-desc">Project synopsis and cinematography description.</p>
@@ -207,7 +343,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script type="module" src="./js/main.js"></script>
 </body>
 </html>
