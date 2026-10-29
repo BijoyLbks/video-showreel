@@ -215,4 +215,21 @@ function setupEventListeners() {
 }
 
 // Boot
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', () => {
+  init();
+
+  // Authentic 24fps Film/VHS Timecode counter
+  const clockEl = document.getElementById('vhsClock');
+  if (clockEl) {
+    let frame = 0;
+    setInterval(() => {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const f = String(frame % 24).padStart(2, '0');
+      clockEl.textContent = `${h}:${m}:${s}:${f}`;
+      frame++;
+    }, 1000 / 24);
+  }
+});
