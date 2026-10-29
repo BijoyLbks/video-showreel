@@ -218,6 +218,16 @@ function setupEventListeners() {
 window.addEventListener('DOMContentLoaded', () => {
   init();
 
+  // Reference Date Format DD/MM/YYYY
+  const dateEl = document.getElementById('headerDate');
+  if (dateEl) {
+    const now = new Date();
+    const d = String(now.getDate()).padStart(2, '0');
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const y = now.getFullYear();
+    dateEl.textContent = `${d}/${m}/${y}`;
+  }
+
   // Authentic 24fps Film/VHS Timecode counter
   const clockEl = document.getElementById('vhsClock');
   if (clockEl) {
